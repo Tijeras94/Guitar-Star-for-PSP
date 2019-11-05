@@ -1,0 +1,119 @@
+#include "main.h"
+
+PSP_MODULE_INFO("fretsOnPsp", 0, 1, 1);
+
+#ifdef DEBUG
+#include "exceptionHandler/utility/exception.c"
+#endif
+
+PSP_MAIN_THREAD_ATTR(0);
+
+/**
+ * liste des états possibles du menu principale
+ */
+enum GAME_STATES{
+	intro,
+	mainMenu,
+	credits,
+	musicSelection,
+	difficultySelection,
+	gaming,
+	error,
+	aide,
+	configMenu,
+#ifdef AD_HOC
+	startMulti,
+	startServerMulti,
+	startClientMulti,
+	selectTargetMulti,
+	gatheringMulti,
+	playMulti,
+	quitMultiState,
+	quitMultiStateSendQuitMessage,
+#endif
+};
+
+
+FolderEntry* musicList;
+//std::stack<FolderEntry*> musicListMenu;
+GAME_STATES state;
+GAME_STATES nextState;
+
+int difficulty;//numero de la difficulté séléctionné
+bool run;//devient false pour que le programme quitte
+Player* player;
+int possiblesDifficulties[4];//possiblesDifficulties[i] = nombre de notes pour la difficulté i
+int mainMenuSelection;//entrée de menu séléctionné
+bool playGuitar, playSong;
+clock_t onEntrySince;
+char tmp[100];
+#ifdef DEBUG
+u32 tickResolution;
+u64 fpsTickNow;
+u64 fpsTickLast;
+int fpsi;
+float fps;
+#endif
+char errtxt[100];
+
+std::vector<char*> mainMenuTxt;
+std::vector<char*>  difficultyMenuTxt;
+
+#ifdef AD_HOC
+std::vector<char*>  clientServerMenuTxt;
+MusicEntry* selectedMusic = 0; 
+int selectedDifficulty = 0;
+int selectedTarget = 0;
+bool mustReset = false;
+bool reseted = false;
+bool mustQuitMusic = false;
+SceUID fd;
+//FolderEntry* sharedMusicList; passer a un map
+//bool sharedMusicListAdded;
+Server* server;
+
+void quitMulti(){
+}
+
+void quitMultiAsynchronously(){
+}
+
+void proccedClientPacket(void* pointerData, adhoc::PSPelement* psp, int datalen, void *buff){
+}
+#endif
+
+void startPreview(MusicEntry* music){
+}
+
+void stopPreview(){
+}
+
+int main()
+{
+	std::vector<char*> aaa;
+	
+	char url[] = "http://www.ps2dev.org/";
+
+	InitGU();
+	
+	int i = webBrowser::init();
+	
+			pspDebugScreenInit();
+			pspDebugScreenPrintf("code : %i",i);
+			sceKernelDelayThread(2000000);
+	
+	webBrowser::startBrowser(url);	
+
+	while(webBrowser::draw())
+	{
+		//sceDisplayWaitVblankStart();
+		startRender();
+		stopRender();
+	}
+
+	webBrowser::uninit();
+	
+	sceKernelExitGame();
+
+	return 0;
+}

@@ -1,0 +1,19 @@
+TARGET = hello
+OBJS = main.o adhoc.o
+
+CFLAGS = -O2 -G0 -Wall -g
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
+ASFLAGS = $(CFLAGS)
+
+LIBDIR =
+LIBS = -lmad -lvorbisidec -lpng -lz \
+		-lpspsdk -lpspctrl -lpspumd -lpsprtc -lpsppower -lpspgum -lpspgu -lpspaudiolib -lpspaudio -lm \
+		-lpspmpeg -lpspaudiocodec -lstdc++ -lmikmod -lmmio -lfreetype \
+		-lpspnet_adhocctl -lpspnet_adhoc -lpspnet_adhocmatching -lpspwlan
+LDFLAGS =
+
+EXTRA_TARGETS = EBOOT.PBP
+PSP_EBOOT_TITLE = matching test for psp
+
+PSPSDK=$(shell psp-config --pspsdk-path)
+include $(PSPSDK)/lib/build.mak
