@@ -41,7 +41,7 @@ LIBS = -lmad -lvorbisidec -lpng -lz \
 		-lpspsdk -lpspctrl -lpspumd -lpsprtc -lpsppower -lpspgum -lpspgu -lpspaudiolib -lpspaudio -lm \
 		-lpspmpeg -lpspaudiocodec -lstdc++ -lmikmod -lmmio -lfreetype \
 		-lpspnet_adhocctl -lpspnet_adhoc -lpspnet_adhocmatching -lpspwlan \
-		-lpsputility -lpsphttp -lpspssl
+		-lpsputility -lpsphttp -lpspssl -logg
 LDFLAGS = 
 
 #pour le navigateur web
