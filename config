@@ -1,0 +1,12 @@
+pseudo = pseudo
+skin = default
+touchesCircle = 00001
+touchesSquare = 00100
+touchesCross = 00010
+touchesTriangle = 00101
+touchesUp = 11000
+touchesDown = 01000
+touchesLeft = 10000
+touchesRight = 00000
+touchesR = 00000
+touchesL = 00000
