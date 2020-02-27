@@ -31,15 +31,15 @@ OBJS = main.o framebuffer.o intraFont.o gfunctions.o data.o midiloader.o callbac
        jdkmidisrc/jdkmidi_track.o\
        matchingWifi/adhoc.o server.o\
 
-INCDIR =
+INCDIR = /usr/include/freetype2
 CFLAGS = -O2 -G0 -Wall -g
-CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti -DDEBUG -DAD_HOC #-DANAGLYPH
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti -DDEBUG #-DAD_HOC -DANAGLYPH
 ASFLAGS = $(CFLAGS)
 
 LIBDIR = 
 LIBS = -lmad -lvorbisidec -lpng -lz \
 		-lpspsdk -lpspctrl -lpspumd -lpsprtc -lpsppower -lpspgum -lpspgu -lpspaudiolib -lpspaudio -lm \
-		-lpspmpeg -lpspaudiocodec -lstdc++ -lmikmod -lmmio -lfreetype \
+		-lpspmpeg -lpspaudiocodec -lstdc++ -lmikmod -lfreetype \
 		-lpspnet_adhocctl -lpspnet_adhoc -lpspnet_adhocmatching -lpspwlan \
 		-lpsputility -lpsphttp -lpspssl -logg
 LDFLAGS = 
