@@ -26,6 +26,7 @@
 #include "typedef.h"
 #include "packets.h"
 #include <pspthreadman.h>
+#include "config.h" // contains strlower() fuction
 #ifdef AD_HOC
 #include "matchingWifi/adhoc.h"
 #endif

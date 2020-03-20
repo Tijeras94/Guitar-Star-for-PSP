@@ -266,6 +266,7 @@ bool isMusicDir(char* dir){
 		{
 			if(dir.d_stat.st_attr & FIO_SO_IFREG)
 			{
+				strlower(dir.d_name); // convert name to lowercase - bug in the ppsspp emulator
 				if(strcmp(dir.d_name,"song.ini")==0){
 					sceIoDclose(dfd);
 					return true;

@@ -33,7 +33,7 @@ OBJS = main.o framebuffer.o intraFont.o gfunctions.o data.o midiloader.o callbac
 
 INCDIR = /usr/include/freetype2
 CFLAGS = -O2 -G0 -Wall -g
-CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti -DDEBUG #-DAD_HOC -DANAGLYPH
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti -DDEBUG -DAD_HOC -DANAGLYPH
 ASFLAGS = $(CFLAGS)
 
 LIBDIR = 

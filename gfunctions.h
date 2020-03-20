@@ -19,7 +19,7 @@
 #include <string.h>
 #include <math.h>
 #include <malloc.h>
-#include <ft2build.h>
+//#include <ft2build.h> works without including it
 #include "shapes.h"
 #include "intraFont.h"
 #include <pspdisplay.h>

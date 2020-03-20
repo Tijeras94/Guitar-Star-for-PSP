@@ -7,6 +7,16 @@
 
 #include <config.h>
 
+int strlower(char *str) {
+
+  char *cptr=NULL;
+
+  for (cptr=str; *cptr; cptr++) *cptr=tolower(*cptr);
+
+  return 1;
+
+}
+
 namespace config{
 	char pseudo[64];
 	char skin[64];

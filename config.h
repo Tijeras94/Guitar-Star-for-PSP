@@ -13,7 +13,9 @@
 #include "pad.h"
 #include "gfunctions.h"
 #include "data.h"
+#include <ctype.h> // contains tolower() function
 
+int strlower(char *str);
 
 namespace config{
 	extern  char pseudo[64];
